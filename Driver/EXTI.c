@@ -4,7 +4,7 @@ void EXTI_EnableInterrupt(uint8_t line){
 		return ;
 	}
 	else{
-		EXTI->EXTI_IMR|= (1<<(line));
+		EXTI->EXTI_IMR|= (1<<line);
 		
 	}
 
@@ -14,13 +14,13 @@ void EXTI_DisableInterrupt(uint8_t line){
 		return ;
 	}
 	else{
-		EXTI->EXTI_IMR &= ~((1)<<(line));
+		EXTI->EXTI_IMR &= ~(1U<<line);
 		
 	}
 }
 void EXTI_SetMode(uint8_t line, EXTI_MODE mode){
-	EXTI->EXTI_RTSR &= ~(1U<<(line)); // reset 
-	EXTI->EXTI_FTSR &= ~(1U<<(line));   // reset
+	EXTI->EXTI_RTSR &= ~(1U<<line); // reset 
+	EXTI->EXTI_FTSR &= ~(1U<<line);   // reset
 	switch (mode){
 		case EXTI_RISING :
 			EXTI->EXTI_RTSR |= (1U<<line);
