@@ -18,13 +18,7 @@ Learning STM32 Bare-Metal Programming using direct register access.
 - UART
 - SPI
 - I2C
-- USB
-
-### Build System
-- Startup Code
-- Linker Script
-- Makefile
-
+  
 ## Development Board
 
 - STM32F103C8T6 (Blue Pill)
