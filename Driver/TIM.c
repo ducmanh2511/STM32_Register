@@ -18,8 +18,13 @@ void TIM_Start_IT(TIMx_Typedef *tim)
     tim->SR   &= ~TIM_SR_UIF;   // xoa co ngat
     tim->DIER |= TIM_DIER_UIE;   // enable  update interrupt
     tim->CR1  |= TIM_CR1_CEN;
+	  NVIC_TIM2_Enable();
 }
 void TIM_Stop(TIMx_Typedef*tim){	
+    tim->CR1 &= ~TIM_CR1_CEN; // disable interrupt
+}
+void TIM_Stop_IT(TIMx_Typedef*tim){	
+	  tim->DIER &= ~TIM_DIER_UIE;
     tim->CR1 &= ~TIM_CR1_CEN; // disable interrupt
 }
 

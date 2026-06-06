@@ -1,6 +1,7 @@
 #ifndef TIM_H
 #define TIM_H
 #include <stdint.h>  
+#include <EXTI.h>
 #define TIM2_ADD_BASE       0x40000000UL
 #define TIM3_ADD_BASE       0x40000400UL
 #define TIM4_ADD_BASE       0x40000800UL
@@ -32,8 +33,8 @@ typedef struct {
 #define TIM_EGR_UG      (1U << 0)
 
 #define TIM2        ((volatile TIMx_Typedef*)TIM2_ADD_BASE)
-#define TIM3        ((volatile TIMx_Typedef*)TIM2_ADD_BASE)
-#define TIM4        ((volatile TIMx_Typedef*)TIM2_ADD_BASE)
+#define TIM3        ((volatile TIMx_Typedef*)TIM3_ADD_BASE)
+#define TIM4        ((volatile TIMx_Typedef*)TIM4_ADD_BASE)
 void TIM_Init(TIMx_Typedef*tim, uint16_t psc, uint16_t arr);
 void TIM_Start(TIMx_Typedef*tim);
 void TIM_Start_IT(TIMx_Typedef*tim);
