@@ -4,8 +4,8 @@
 #include <stdint.h>
 #include <GPIO.h>
 #include <AFIO.h>
-#define EXTI_ADD_BASE         0x40010400
-#define NVIC_ADD_BASE         0xE000E100
+#define EXTI_ADD_BASE         0x40010400UL
+#define NVIC_ADD_BASE         0xE000E100UL
 typedef enum {
 	  EXTI_RISING,
 	  EXTI_FALLING,
@@ -44,6 +44,9 @@ void NVIC_EXTI0_Enable(void);
 void NVIC_EXTI1_Enable(void);
 void NVIC_EXTI2_Enable(void);
 void NVIC_UART1_Enable(void);
+void NVIC_TIM2_Enable(void);
+void NVIC_TIM3_Enable(void);
+void NVIC_TIM4_Enable(void);
 void EXTI0_IRQHandler(void);
 
 
