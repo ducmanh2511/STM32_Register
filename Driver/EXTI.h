@@ -40,13 +40,7 @@ void EXTI_DisableInterrupt(uint8_t line);
 uint8_t EXTI_GetPending(uint8_t line);
 void EXTI_ClearPending(uint8_t line);
 void EXTI_Init(GPIO_Typedef *port, uint8_t pin, EXTI_MODE mode);
-void NVIC_EXTI0_Enable(void);
-void NVIC_EXTI1_Enable(void);
-void NVIC_EXTI2_Enable(void);
-void NVIC_UART1_Enable(void);
-void NVIC_TIM2_Enable(void);
-void NVIC_TIM3_Enable(void);
-void NVIC_TIM4_Enable(void);
+
 void EXTI0_IRQHandler(void);
 
 
