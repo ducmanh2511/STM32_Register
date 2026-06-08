@@ -14,7 +14,16 @@ void RCC_GPIOD_EnableClock(void){
 void RCC_GPIOE_EnableClock(void){
 	RCC->RCC_APB2ENR |= RCC_APB2ENR_IOPE;
 }
-void Set_SysCLK_72MHz(void){
+void RCC_TIM2_EnableClock(void){
+	RCC->RCC_APB1ENR |= RCC_APB1ENR_TIM2;
+}
+void RCC_ADC1_EnableClock(void){
+	RCC->RCC_APB2ENR |= RCC_APB2ENR_ADC1;
+}
+void RCC_I2C1_EnableClock(void){
+	RCC->APB1RSTR |= RCC_APB1ENR_I2C1;
+}
+void RCC_SetSysCLK_72MHz(void){
 	RCC->RCC_CR |= RCC_CR_HSEON; // HSE ON
 	while((RCC->RCC_CR&RCC_CR_HSERDY)==0){
 		// wait HSE ready
