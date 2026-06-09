@@ -23,6 +23,9 @@ void RCC_ADC1_EnableClock(void){
 void RCC_I2C1_EnableClock(void){
 	RCC->APB1RSTR |= RCC_APB1ENR_I2C1;
 }
+void RCC_UART1_EnableClock(void){
+	RCC->RCC_APB2ENR |= RCC_APB2ENR_UART1;
+}
 void RCC_SetSysCLK_72MHz(void){
 	RCC->RCC_CR |= RCC_CR_HSEON; // HSE ON
 	while((RCC->RCC_CR&RCC_CR_HSERDY)==0){
