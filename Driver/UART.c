@@ -22,12 +22,11 @@ void UART1_Init_IT(void){
 	UART->USART_CR1 |= USART_CR1_UE;  // enable uart
 	UART->USART_CR1 |= USART_CR1_TE;   // enable transmit
 	UART->USART_CR1 |= USART_CR1_RE;   // enable receive
-	UART->USART_CR1 |= USART_CR1_RXNEIE;   // rx interrupt enable
 	NVIC_UART1_Enable();
 	
 }
 void UART1_Transmit_Char(char c){
-	while(!(UART->USART_SR&USART_SR_TXE)); 
+	while(!(UART->USART_SR&USART_SR_TXE)); // doi transmit data reg empty
 	UART->USART_DR = c;
 	  
 }
@@ -37,8 +36,15 @@ void UART1_Transmit_String(char*s){
 	}
 }
 char UART1_Receive_Char(void){
-	while(!(UART->USART_SR&USART_SR_RXNE));
+	while(!(UART->USART_SR&USART_SR_RXNE)); // 
 	return (char)UART->USART_DR&(0xFF);
+}
+
+/*
+UART1_Receive_Char_IT  : ready interrupt (Set register RXNEIE )
+*/
+void UART1_Receive_Char_IT(void){ 
+	UART->USART_CR1 |= USART_CR1_RXNEIE;   // rx interrupt enable
 }
 void USART1_IRQHandler(void){
     if(UART->USART_SR&USART_SR_RXNE){
@@ -46,6 +52,4 @@ void USART1_IRQHandler(void){
 			char c = (char)(UART->USART_DR & 0xFF);
 			UART1_Transmit_Char(c); // transmit gia tri nhan duoc
 		}			
-		
-
 }
