@@ -124,5 +124,6 @@ void RCC_TIM2_EnableClock(void);
 void RCC_ADC1_EnableClock(void);
 void RCC_I2C1_EnableClock(void);
 void RCC_UART1_EnableClock(void);
+void RCC_AFIO_EnableClock(void);
 void RCC_SetSysCLK_72MHz(void);
 #endif 
